@@ -15,7 +15,8 @@ public class StringTest {
         System.out.println(a.equals(b));
         System.out.println(a==b); //false
         System.out.println(System.identityHashCode(a)+ " "+System.identityHashCode(b));
-        System.out.println("-------------------------");
+        System.out.println("----------String c = a+\"c\";\n" +
+                "        String d = \"fuckc\";---------------");
 
         String c = a+"c";
         String d = "fuckc";
@@ -23,7 +24,8 @@ public class StringTest {
         System.out.println(c.equals(d));
         System.out.println(c==d); //false
         System.out.println(System.identityHashCode(c)+ " "+System.identityHashCode(d));
-        System.out.println("-------------------------");
+        System.out.println("----------c = \"fuck\"+\"d\";\n" +
+                "        d = \"fuckd\";---------------");
 
         c = "fuck"+"d";
         d = "fuckd";
@@ -31,7 +33,8 @@ public class StringTest {
         System.out.println(c.equals(d));
         System.out.println(c==d); //false
         System.out.println(System.identityHashCode(c)+ " "+System.identityHashCode(d));
-        System.out.println("-------------------------");
+        System.out.println("-----------StringBuffer e =new StringBuffer(\"cao\");\n" +
+                "        StringBuffer f =new StringBuffer(\"cao\");--------------");
         StringBuffer e =new StringBuffer("cao");
         StringBuffer f =new StringBuffer("cao");
         System.out.println(e.hashCode()+" "+f.hashCode());
