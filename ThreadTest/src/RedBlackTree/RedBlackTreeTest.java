@@ -12,7 +12,7 @@ import java.util.List;
 public class RedBlackTreeTest {
     public static void main(String[] args) {
 
-        List<? super List> list =new ArrayList();
+        /*List<? super List> list =new ArrayList();
         list.add(new ArrayList());
 
         TreeNode T1= new TreeNode();
@@ -23,6 +23,11 @@ public class RedBlackTreeTest {
         T1 = new TreeNode();
         System.out.println(T1);
 
-        System.out.println(T2);
+        System.out.println(T2);*/
+        RedBlackTree rbt = new RedBlackTree();
+        for (int i = 0; i < 100; i++) {
+            rbt.insert(new TreeNode(i));
+        }
+        rbt.iterator(rbt.getRoot());
     }
 }
