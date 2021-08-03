@@ -16,7 +16,6 @@ public class RedBlackTree{
     }
 
 
-
     public TreeNode iterator(TreeNode node){
         if(node==null)return null;
         else{
@@ -25,9 +24,35 @@ public class RedBlackTree{
             iterator(node.getRight());
             return node;
         }
-
-
     }
+
+    public TreeNode search(TreeNode node){
+        if(node==null)return null;
+        TreeNode current = root;
+
+        while(true){
+            if(current.getData().compareTo(node.getData())==0){
+                return current;
+            }
+            else if(current.getLeft()==null&&current.getRight()==null){
+                return null;
+            }
+            else{
+                current = search(current,node);
+            }
+        }
+    }
+    public TreeNode search(TreeNode node,TreeNode dest){
+
+
+        if(dest.getData().compareTo(node.getData())>0){
+            return node.getRight();
+        }
+        else{
+            return node.getLeft();
+        }
+    }
+
 
     public TreeNode insert(TreeNode node){
 
@@ -67,6 +92,10 @@ public class RedBlackTree{
         insertFix(node);
 
         return node;
+    }
+
+    public void delete(TreeNode node){
+
     }
 
     private void insertFix(TreeNode node) {

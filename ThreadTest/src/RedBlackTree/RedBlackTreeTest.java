@@ -2,6 +2,7 @@ package RedBlackTree;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * @author: wg
@@ -29,5 +30,7 @@ public class RedBlackTreeTest {
             rbt.insert(new TreeNode(i));
         }
         rbt.iterator(rbt.getRoot());
+        TreeNode result=rbt.search(new TreeNode(12));
+        System.out.println(result);
     }
 }
