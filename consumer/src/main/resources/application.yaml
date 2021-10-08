@@ -1,3 +1,4 @@
-spring:
-  profiles:
-    active: dev
+application:
+  value: application文件
+bootstrap:
+  value: application中的bootstrap文件

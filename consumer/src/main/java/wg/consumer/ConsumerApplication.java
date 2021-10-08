@@ -1,6 +1,7 @@
 package wg.consumer;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.client.RestTemplateBuilder;
@@ -18,7 +19,17 @@ import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @EnableDiscoveryClient
+
 public class ConsumerApplication {
+
+    @Value("${test.value:}")
+    public String name;
+    @Value("${bootstrap.value:}")
+    public String name2;
+    @Value("${application.value:}")
+    public String name3;
+    @Value("${spring.datasource.datasource.url:}")
+    public String url;
 
     public static void main(String[] args) {
         ConfigurableApplicationContext applicationContext = SpringApplication.run(ConsumerApplication.class, args);
@@ -39,6 +50,10 @@ public class ConsumerApplication {
         @Bean
         @LoadBalanced
         public RestTemplate restTemplate(RestTemplateBuilder builder) {
+            System.out.println("------------"+name+"------------");
+            System.out.println("------------"+name2+"------------");
+            System.out.println("------------"+name3+"------------");
+            System.out.println("------------"+url+"------------");
 
             return builder.build();
 

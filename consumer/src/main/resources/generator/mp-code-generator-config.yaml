@@ -1,0 +1,44 @@
+globalConfig:
+  author: weiller
+  open: false
+  idType: INPUT
+  dateType: ONLY_DATE
+  enableCache: false
+  activeRecord: false
+  baseResultMap: true
+  baseColumnList: true
+  swagger2: true
+  fileOverride: true
+dataSourceConfig:
+  url: jdbc:mysql://127.0.0.1:3306/test?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
+  driverName: com.mysql.jdbc.Driver
+  username: root
+  password: 111111
+packageConfig:
+  parent: wg.consumer
+  moduleName: rest
+  entity: model
+  service: service
+  serviceImpl: service.impl
+  mapper: dao
+  xml: mapper
+  controller: controller
+  pathInfo:
+    entity_path: src\main\java\wg\consumer\rest\model
+    service_path: src\main\java\wg\consumer\rest\service
+    service_impl_path: src\main\java\wg\consumer\rest\service\impl
+    mapper_path: src\main\java\wg\consumer\rest\dao
+    xml_path: src\main\resources\wg\consumer\rest\mapper
+    controller_path: src\main\java\wg\consumer\rest\controller
+strategyConfig:
+  naming: underline_to_camel
+  columnNaming: underline_to_camel
+  entityLombokModel: true
+  superMapperClass: com.baomidou.mybatisplus.core.mapper.BaseMapper
+  superServiceClass: com.baomidou.mybatisplus.extension.service.IService
+  superServiceImplClass: com.baomidou.mybatisplus.extension.service.impl.ServiceImpl
+  controllerMappingHyphenStyle: true
+  restControllerStyle: true
+  tablePrefix:
+  include:
+    - t_user
