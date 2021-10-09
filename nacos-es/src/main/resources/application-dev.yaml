@@ -1,0 +1,12 @@
+spring:
+  profile: dev
+  application:
+    name: es-server
+
+server:
+  port: 8081
+
+es:
+  config:
+    address:
+      - 127.0.0.1:9200
