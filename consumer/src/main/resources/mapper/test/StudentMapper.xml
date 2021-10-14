@@ -4,14 +4,13 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="wg.consumer.test.entity.Student">
-        <result column="id" property="id" />
+        <id column="id" property="id" />
         <result column="name" property="name" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id,
-        name
+        id, name
     </sql>
 
 </mapper>

@@ -26,6 +26,8 @@
         <spring-boot-dependencies.version>2.4.6</spring-boot-dependencies.version>
         <spring-boot-starter-jdbc.version>2.4.1</spring-boot-starter-jdbc.version>
         <mybatis.plus.version>3.4.2</mybatis.plus.version>
+        <mybatis.version>3.4.2</mybatis.version>
+
         <dynamic-datasource.version>3.4.1</dynamic-datasource.version>
     </properties>
     <dependencies>
@@ -117,6 +119,13 @@
                 <scope>import</scope>
 
             </dependency>
+            <!-- 实现对 MyBatis 的自动化配置 -->
+            <!--<dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>-->
+
             <dependency>
                 <groupId>org.mybatis.spring.boot</groupId>
                 <artifactId>mybatis-spring-boot-starter</artifactId>
@@ -167,14 +176,7 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-    <modules>
-        <module>nacos-config</module>
-        <module>nacos-discovery</module>
-        <module>JavaObject</module>
-        <module>nacos-es</module>
-        <module>consumer</module>
-        <module>provider</module>
-    </modules>
+
     <!--<build>
         <plugins>
             <plugin>

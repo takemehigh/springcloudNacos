@@ -51,7 +51,8 @@ public class CodeGenerator {
         gc.setOpen(false);
         gc.setBaseResultMap(true);
         gc.setBaseColumnList(true);
-
+        //是否覆盖同名文件
+        gc.setFileOverride(true);
         gc.setSwagger2(true); //实体属性 Swagger2 注解
         mpg.setGlobalConfig(gc);
 
@@ -126,6 +127,7 @@ public class CodeGenerator {
 
         // 策略配置
         StrategyConfig strategy = new StrategyConfig();
+
         strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
         //strategy.setSuperEntityClass("你自己的父类实体,没有就不用设置!");
@@ -134,7 +136,7 @@ public class CodeGenerator {
         // 公共父类
         //strategy.setSuperControllerClass("你自己的父类控制器,没有就不用设置!");
         // 写于父类中的公共字段
-        strategy.setSuperEntityColumns("id");
+        //strategy.setSuperEntityColumns("id");
         strategy.setInclude(scanner("表名，多个英文逗号分割").split(","));
         strategy.setControllerMappingHyphenStyle(true);
         strategy.setTablePrefix(pc.getModuleName() + "_");

@@ -2,3 +2,37 @@ application:
   value: application文件
 bootstrap:
   value: application中的bootstrap文件
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    auto-mapping-behavior: full
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath*:mapper/**/*Mapper.xml
+  global-config:
+    # 逻辑删除配置
+    db-config:
+      # 删除前
+      logic-not-delete-value: 1
+      # 删除后
+      logic-delete-value: 0
+
+test:
+  value: wg
+spring:
+  datasource:
+    dynamic:
+    primary: master #数据源名称
+    seata: false   #开启seata代理，开启后默认每个数据源都代理，如果某个不需要代理可单独关闭
+    seata-mode: AT #支持XA及AT模式,默认AT
+    datasource:
+      master:
+      url: jdbc:mysql://127.0.0.1:3306/test?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
+      username: root
+      password: 111111
+      driver-class-name: com.mysql.jdbc.Driver
+      type: com.zaxxer.hikari.HikariDataSource
+    #url: jdbc:mysql://127.0.0.1:3306/test?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
+    #username: root
+    #password: 111111
+    #driver-class-name: com.mysql.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource

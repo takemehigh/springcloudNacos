@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author wg
- * @since 2021-10-06
+ * @since 2021-10-14
  */
 @Service
 public class CourseServiceImpl extends ServiceImpl<CourseMapper, Course> implements ICourseService {
