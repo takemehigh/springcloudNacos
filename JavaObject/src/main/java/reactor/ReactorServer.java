@@ -99,7 +99,7 @@ public class ReactorServer implements Runnable{
                 //SelectionKey selectionKey = socketChannel.register(selector,SelectionKey.OP_READ);
                 //将显示HANDLER加到选择键中
                 //传入selector\channel是为了方便注册事件，
-                selectionKey.attach(new EchoHandler(selector,));
+                new EchoHandler(selector,socketChannel);
 
 
             } catch (IOException e) {

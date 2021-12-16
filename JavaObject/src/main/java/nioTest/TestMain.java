@@ -40,7 +40,7 @@ public class TestMain {
             }
         });
         //t.start();
-        t2.start();
+        //t2.start();
         while(!Thread.interrupted()){
             System.out.println("------------");
             try {
