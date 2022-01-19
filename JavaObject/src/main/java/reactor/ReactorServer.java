@@ -57,7 +57,6 @@ public class ReactorServer implements Runnable{
             while(!Thread.interrupted()){
 
                 selector.select();
-
                 Set<SelectionKey> keySet= selector.selectedKeys();
 
                 Iterator<SelectionKey> it = keySet.iterator();

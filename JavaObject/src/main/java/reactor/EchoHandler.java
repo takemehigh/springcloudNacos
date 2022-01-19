@@ -31,7 +31,7 @@ public class EchoHandler implements Runnable{
         //注册读事件
         sk.interestOps(SelectionKey.OP_READ);
         selector.wakeup();
-
+        
     }
 
     @Override
