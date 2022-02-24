@@ -13,6 +13,8 @@ import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.InterfaceAddress;
 import java.nio.ByteBuffer;
+import java.nio.IntBuffer;
+import java.nio.ShortBuffer;
 import java.nio.channels.*;
 import java.nio.charset.Charset;
 import java.util.HashMap;
@@ -186,7 +188,8 @@ class FileChannelReceiver {
     Map<SelectableChannel,Client> clientMap = new HashMap<>();
 
     ByteBuffer byteBuffer = ByteBuffer.allocate(10240);
-
+    //ShortBuffer
+    //IntBuffer intBuffe
     private Charset charset = Charset.forName("UTF-8");
 
 

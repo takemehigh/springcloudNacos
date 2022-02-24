@@ -1,21 +1,33 @@
-package netty;
+package netty.handler;
 
 import io.netty.buffer.ByteBuf;
+import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import util.LoggerUtil;
 
+import java.io.UnsupportedEncodingException;
+@ChannelHandler.Sharable
+public class NettyEchoHandler extends ChannelInboundHandlerAdapter {
 
-public class InBoundHandlerDemo extends ChannelInboundHandlerAdapter {
+    public static final NettyEchoHandler NettyEchoHandler = new NettyEchoHandler();
+
     @Override
-    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        LoggerUtil.info("channelRead被调用");
-        System.out.println(msg);
-        System.out.println(((ByteBuf) msg).readInt());
+    public void channelRead(ChannelHandlerContext ctx, Object msg) throws UnsupportedEncodingException {
 
-        super.channelRead(ctx, msg);
+
+        //LoggerUtil.info(this);
+
+        ByteBuf in = (ByteBuf) msg;
+        LoggerUtil.info("msg type: " + (in.hasArray()?"堆内存":"直接内存"));
+
+        int len = in.readableBytes();
+        byte[] arr = new byte[len];
+        in.getBytes(0, arr);
+        LoggerUtil.info("client received: " + new String(arr, "UTF-8"));
+
+
     }
-
 
     @Override
     public void channelRegistered(ChannelHandlerContext ctx) throws Exception {

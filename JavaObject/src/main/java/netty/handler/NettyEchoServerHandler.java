@@ -1,19 +1,24 @@
-package netty;
+package netty.handler;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelInboundHandler;
 import io.netty.channel.ChannelInboundHandlerAdapter;
-import io.netty.util.ReferenceCountUtil;
 import util.LoggerUtil;
 
 import java.io.UnsupportedEncodingException;
 
-public class NettyDiscardHandler extends ChannelInboundHandlerAdapter {
+@ChannelHandler.Sharable
+public class NettyEchoServerHandler extends ChannelInboundHandlerAdapter {
+
+    public static final NettyEchoServerHandler NettyEchoHandler = new NettyEchoServerHandler();
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws UnsupportedEncodingException {
+
+
+        LoggerUtil.info(this);
 
         ByteBuf in = (ByteBuf) msg;
         LoggerUtil.info("msg type: " + (in.hasArray()?"堆内存":"直接内存"));
